@@ -1,0 +1,228 @@
+/* drivenexttech app pages: the same light sunrise palette as the apps.
+   Fonts are hosted here (not loaded from Google), so the pages make no outside requests. */
+
+@font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Jost"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("fonts/jost-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Jost"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("fonts/jost-latin-500-normal.woff2") format("woff2"); }
+
+:root {
+  --dawn-top: #f8d1ca;
+  --dawn-peach: #fcdcc6;
+  --dawn-gold: #fde9c6;
+  --dawn-cream: #fff8ec;
+  --ink: #6e4034;
+  --ink-soft: #8a5644;
+  --gold: #c8902c;
+  --line: rgba(200, 144, 44, 0.32);
+  --panel: rgba(255, 251, 243, 0.78);
+  --display: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--dawn-cream);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding-inline: 16px;
+  padding-block: 0 48px;
+  background:
+    linear-gradient(180deg, var(--dawn-top) 0, var(--dawn-peach) 220px, var(--dawn-gold) 520px, var(--dawn-cream) 900px)
+    no-repeat var(--dawn-cream);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.wrap {
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+/* Site header: app icon, app name, page links */
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding-block: 28px 8px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  min-width: 0;
+}
+.brand img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(110, 64, 52, 0.18);
+  flex: none;
+}
+.brand span {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.nav {
+  display: flex;
+  gap: 6px;
+}
+.nav a {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.nav a[aria-current="page"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--dawn-cream);
+}
+
+/* Page heading */
+.title {
+  padding-block: 40px 8px;
+}
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 9vw, 3.2rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.updated {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+.lede {
+  margin: 22px 0 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
+/* Content */
+main section {
+  padding-block: 26px 0;
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+}
+h2 {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+h3 {
+  margin: 22px 0 4px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+p { margin: 0 0 12px; }
+ul {
+  margin: 0 0 12px;
+  padding-left: 1.2em;
+}
+li { margin-bottom: 6px; }
+li::marker { color: var(--gold); }
+strong { font-weight: 500; }
+
+a { color: var(--ink); text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, .nav a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* The contact box */
+.contact {
+  margin-top: 14px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+.contact p:last-child { margin-bottom: 0; }
+.email {
+  font-size: 1.15rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* Homepage app list */
+.apps {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+.app {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+}
+.app img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  flex: none;
+  box-shadow: 0 1px 3px rgba(110, 64, 52, 0.18);
+}
+.app div { min-width: 0; }
+.app h2 { margin-bottom: 2px; font-size: 1.45rem; }
+.app p { margin-bottom: 8px; }
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 0.95rem;
+}
+
+footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* Keep the name "Alláh-u-Abhá" on one line instead of breaking at its hyphens */
+.nb { white-space: nowrap; }
